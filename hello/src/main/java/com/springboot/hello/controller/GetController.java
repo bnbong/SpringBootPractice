@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.hello.dto.MemberDto;
+
 
 @RestController
 @RequestMapping("/api/v1/get-api")
@@ -45,5 +47,12 @@ public class GetController {
 
         return sb.toString();
     }
+
+    // http://localhost:8080/api/v1/get-api/request3?name=value1&email=value2&organization=value3
+    @GetMapping(value="/request3")
+    public String getRequestParam3(MemberDto memberDto) {
+        return memberDto.toString();
+    }
+    
     
 }
